@@ -1,8 +1,23 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {useState} from 'react'
+import CoinInfo from '../components/CoinInfo'
 
-export default function Home() {
+
+
+export const getStaticProps = async () => {
+
+  const res = await fetch(`https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/2020-10-14?adjusted=true&apiKey=eyNjX12P8QKZfyccYamQTb1TCYOnQ49u`)
+  const data = await res.json()
+
+  return {
+    props: { data }
+  }
+}
+
+export default function Home(props) {
+  const [crypto,setCrypto] = useState()
   return (
     <div className={styles.container}>
       <Head>
@@ -15,6 +30,18 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to the Crypto Tracker
         </h1>
+
+       <h2>Heres a list of {props.data.queryCount} Cryptos to keep an eye on</h2>
+
+       {props && (<div className='coins'>
+        {props.data.results && props.data.results.map((crypto,index) => {
+          return(
+            <div key={index}>
+              <CoinInfo coin={crypto.T}/>
+            </div>          
+          )
+
+        })}</div>)}
 
         </main>
     </div>
