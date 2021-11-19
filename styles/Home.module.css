@@ -108,6 +108,14 @@
   margin-left: 0.5rem;
 }
 
+.coins{
+  background-color: #0070f3;
+}
+
+.coin{
+  padding-bottom: 60%;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

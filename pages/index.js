@@ -31,7 +31,7 @@ export default function Home(props) {
 
        <h2>Heres a list of {props.data.queryCount} Cryptos to keep an eye on</h2>
 
-       {props && (<div className='coins'>
+       {props && (<div >
         {props.data.results && props.data.results.map((crypto,index) => {
           return(
             <div key={index}>
