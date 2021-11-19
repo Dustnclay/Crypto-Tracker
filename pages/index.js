@@ -1,14 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import {useState} from 'react'
 import CoinInfo from '../components/CoinInfo'
 
 
 
 export const getStaticProps = async () => {
-
-  const res = await fetch(`https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/2020-10-14?adjusted=true&apiKey=eyNjX12P8QKZfyccYamQTb1TCYOnQ49u`)
+  const res = await fetch(`https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/2021-11-17?adjusted=true&apiKey=${process.env.API_KEY}`)
   const data = await res.json()
 
   return {
@@ -17,7 +15,7 @@ export const getStaticProps = async () => {
 }
 
 export default function Home(props) {
-  const [crypto,setCrypto] = useState()
+  console.log(props.data)
   return (
     <div className={styles.container}>
       <Head>
