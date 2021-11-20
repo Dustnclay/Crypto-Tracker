@@ -5,13 +5,14 @@ import styles from '../styles/Home.module.css'
 
 export default function CoinInfo (props) {
     var coin = props.coin
-    var path = `${window.location.origin}` + `/coins/${coin}` ||`coins/${coin}`
-    console.log('window.location.origin in CoinInfo', window.location.origin )
+    var path =`https://dustnclaytiner-crypto-tracker-default.layer0-limelight.link/coins/${coin}`
+
+    // console.log('window.location.origin in CoinInfo', window.location.origin )
     return(
         <div className={styles.coin}>
             <Link             
               href={{
-              pathname: '/coins/[coinNo]',
+              pathname: 'coins/[coinNo]',
               query: { coinNo: coin },
               
             }}passHref>
