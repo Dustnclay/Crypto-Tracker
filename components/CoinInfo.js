@@ -15,7 +15,7 @@ export default function CoinInfo (props) {
               pathname: 'coins/[coinNo]',
               query: { coinNo: coin },
               
-            }}passHref>
+            }}>
 
                 <Prefetch url={path}>
                     <button>{coin}</button>
