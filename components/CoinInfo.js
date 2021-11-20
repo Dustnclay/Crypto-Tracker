@@ -5,7 +5,8 @@ import styles from '../styles/Home.module.css'
 
 export default function CoinInfo (props) {
     var coin = props.coin
-    var path = `coins/${coin}`
+    var path = `${window.location.origin}` + `/coins/${coin}` ||`coins/${coin}`
+    console.log('window.location.origin in CoinInfo', window.location.origin )
     return(
         <div className={styles.coin}>
             <Link             
