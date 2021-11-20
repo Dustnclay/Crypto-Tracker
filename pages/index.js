@@ -3,19 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import CoinInfo from '../components/CoinInfo'
 
-
-
-export const getStaticProps = async () => {
-  const res = await fetch(`https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/2021-11-17?adjusted=true&apiKey=${process.env.API_KEY}`)
-  const data = await res.json()
-
-  return {
-    props: { data }
-  }
-}
-
-export default function Home(props) {
-  console.log(props.data)
+function Home({props}) {
+  console.log('props in intial props',props)
   return (
     <div className={styles.container}>
       <Head>
@@ -45,3 +34,16 @@ export default function Home(props) {
     </div>
   )
 }
+
+Home.getInitialProps = async () => {
+  var api_key = process.env.API_KEY || 'eyNjX12P8QKZfyccYamQTb1TCYOnQ49u'
+
+  const res = await fetch(`https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/2021-11-17?adjusted=true&apiKey=${api_key}`)
+  const data = await res.json()
+
+  return {
+    props: { data }
+  }
+}
+
+export default Home

@@ -11,6 +11,7 @@
   "name": "crypto-tracker",
   "private": true,
   "dependencies": {
+    "@polygon.io/client-js": "^3.0.0",
     "dotenv": "^10.0.0",
     "next": "12.0.4",
     "node-fetch": "^3.1.0",
