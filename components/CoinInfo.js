@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 
 export default function CoinInfo (props) {
     var coin = props.coin
-    // var path = `api/ticker/${coin}`
+    var path = `coins/${coin}`
     return(
         <div className={styles.coin}>
             <Link             
@@ -15,7 +15,7 @@ export default function CoinInfo (props) {
               
             }}passHref>
 
-                <Prefetch >
+                <Prefetch url={path}>
                     <button>{coin}</button>
                 </Prefetch>
 
