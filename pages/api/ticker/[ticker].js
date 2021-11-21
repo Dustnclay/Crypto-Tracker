@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
     try {
         const data = await fetch(path)
-        .then(res => res.json(),console.log('res in ticker',res))
+        .then(res => res.json())
         
         res.json(data)            
       } catch (err) {
