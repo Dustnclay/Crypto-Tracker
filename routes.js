@@ -97,7 +97,7 @@ module.exports = new Router()
         .addCookie('some-cookie'), // Split cache by some-cookie cookie
     })
   })
-  .match('/api/ticker/:ticker+', ({ cache }) => {
+  .match('/api/ticker/:ticker', ({ cache }) => {
     cache({
       browser: {
         // Sets the cache-control: maxage=n header sent to the browser.  To prevent the browser from caching this route
